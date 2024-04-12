@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config()
 
 const routes = require('./routes')
 
@@ -8,4 +9,4 @@ app.use(express.json())
 
 app.use(routes)
 
-app.listen(3333)
+app.listen(4566)

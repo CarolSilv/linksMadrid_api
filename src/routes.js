@@ -1,9 +1,11 @@
-const express= require("express");
+const express = require("express");
+const db = require("./db/db");
 
 const router = express.Router();
 
-router.get('/', (request, response) => {
-    return response.send("aaaaaaaaaaaaa");
-})
+router.get("/", (request, response) => {
+db.getPgVersion()
+  return response.send("aaaaaaaaaaaaa");
+});
 
 module.exports = router;
