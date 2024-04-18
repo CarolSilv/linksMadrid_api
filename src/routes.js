@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", async (request, response) => {
   const dados = await getServicos();
-  return response.json(dados);
+  return response.json({dados:dados.rows})
 });
 
 module.exports = router;
