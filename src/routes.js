@@ -1,11 +1,12 @@
 const express = require("express");
-const db = require("./db/db");
+const { getServicos } = require("./DAO/TabelaDAO");
+
 
 const router = express.Router();
 
-router.get("/", (request, response) => {
-db.getPgVersion()
-  return response.send("aaaaaaaaaaaaa");
+router.get("/", async (request, response) => {
+  const dados = await getServicos();
+  return response.json(dados);
 });
 
 module.exports = router;
