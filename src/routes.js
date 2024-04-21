@@ -1,11 +1,18 @@
 const express = require("express");
-const { getServicosAtivos, getServicos } = require("./DAO/TabelaDAO");
+const { getServicosAtivos, getServicos, insertAcesso } = require("./DAO/TabelaDAO");
 
 
 const router = express.Router();
 
-router.get("/ativos", async (request, response) => {
+const contadorMiddleware = (req, res, next) => {
+    insertAcesso()
+    next();
+};
 
+
+router.use('/ativos',contadorMiddleware)
+
+router.get("/ativos", async (request, response) => {
   const dados = await getServicosAtivos();
   return response.json({
     dados: dados.rows
