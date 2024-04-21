@@ -12,8 +12,7 @@ async function getServicos() {
 
 async function getServicosAtivos() {
   const con = pool()
-
-  const query = `SELECT * FROM public.servicos_madrid where ativo = true;`
+  const query = `SELECT * FROM public.servicos_madrid where ativo = 'true';`
   const data = await con.query(query)
   con.end()
   return data
