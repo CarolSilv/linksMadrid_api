@@ -1,12 +1,12 @@
 const express = require("express");
-const { getServicos } = require("./DAO/TabelaDAO");
+const { getServicosAtivos } = require("./DAO/TabelaDAO");
 
 
 const router = express.Router();
 
-router.get("/", async (request, response) => {
-  const dados = await getServicos();
-  return response.json({dados:dados.rows});
+router.get("/ativos", async (request, response) => {
+  const dados = await getServicosAtivos();
+  return response.json({ dados: dados.rows });
 });
 
 module.exports = router;
